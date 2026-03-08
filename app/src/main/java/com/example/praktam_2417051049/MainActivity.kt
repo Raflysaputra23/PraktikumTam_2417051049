@@ -9,9 +9,11 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -86,7 +88,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
                         containerColor = Color(0xFFFF5722),
                         contentColor = Color(0xFFFFFFFF),
 
-                        ), contentPadding = PaddingValues(horizontal = 8.dp)) {
+                        ), contentPadding = PaddingValues(horizontal = 10.dp)) {
                         Text(text = item, fontSize = 12.sp, fontWeight = FontWeight.Medium)
                     }
                 }
@@ -97,31 +99,116 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
             Text(text = "Semua Menu", fontSize = 14.sp, color = Color(0xFF1e1e1d), fontWeight = FontWeight.SemiBold)
             Column(modifier = Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Card(modifier = Modifier.clip(shape = RoundedCornerShape(8.dp)).fillMaxWidth(0.5f).height(80.dp)) {
-                        Image(painter = painterResource(id = R.drawable.banner),
-                            contentDescription = null,
-                            modifier = Modifier.fillMaxWidth().clip(shape = RoundedCornerShape(8.dp)),
-                            contentScale = ContentScale.Crop)
+                    Card(modifier = Modifier.clip(shape = RoundedCornerShape(8.dp)).fillMaxWidth(0.5f)) {
+                        Column() {
+                            Box(modifier = Modifier.fillMaxWidth().height(100.dp)) {
+                                Image(painter = painterResource(id = R.drawable.banner),
+                                    contentDescription = null,
+                                    modifier = Modifier.fillMaxSize().clip(shape = RoundedCornerShape(8.dp)),
+                                    contentScale = ContentScale.Crop)
+                                Text(text = "Makanan", fontSize = 14.sp, color = Color(0xFFFFFFFF), fontWeight = FontWeight.Medium, modifier = Modifier.background(Color(0xFFFF5722), shape = RoundedCornerShape(4.dp)).padding(vertical = 4.dp, horizontal = 8.dp))
+                            }
+                            Column(modifier = Modifier.padding(horizontal = 6.dp, vertical = 4.dp)) {
+                                Text(text = "Nasi Goreng", fontSize = 14.sp, color = Color(0xFF000000), fontWeight = FontWeight.SemiBold)
+                                Text(text = "Nasi goreng dengan telur", fontSize = 11.sp, color = Color(0xFF000000), fontWeight = FontWeight.Light)
+                                Spacer(modifier = Modifier.height(4.dp))
+                                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                                    Text(text = "Rp. 15.000", fontSize = 14.sp, fontWeight = FontWeight.SemiBold, color = Color(0xFFFF5722))
+                                    Button(onClick = { /*TODO*/ }, shape = RoundedCornerShape(10.dp), colors = ButtonDefaults.buttonColors(
+                                        containerColor = Color(0xFFFF5722),
+                                        contentColor = Color(0xFFFFFFFF),
+
+                                        ), contentPadding = PaddingValues(horizontal = 4.dp, vertical = 2.dp)) {
+                                        Text(text = "Beli", fontSize = 12.sp, fontWeight = FontWeight.Medium)
+                                    }
+
+                                }
+                            }
+                        }
                     }
-                    Card(modifier = Modifier.clip(shape = RoundedCornerShape(8.dp)).fillMaxWidth().height(80.dp)) {
-                        Image(painter = painterResource(id = R.drawable.minuman),
-                            contentDescription = "Minuman",
-                            modifier = Modifier.fillMaxWidth().clip(shape = RoundedCornerShape(8.dp)),
-                            contentScale = ContentScale.Crop)
+                    Card(modifier = Modifier.clip(shape = RoundedCornerShape(8.dp)).fillMaxWidth()) {
+                        Column() {
+                            Box(modifier = Modifier.fillMaxWidth().height(100.dp)) {
+                                Image(painter = painterResource(id = R.drawable.banner),
+                                    contentDescription = null,
+                                    modifier = Modifier.fillMaxSize().clip(shape = RoundedCornerShape(8.dp)),
+                                    contentScale = ContentScale.Crop)
+                                Text(text = "Makanan", fontSize = 14.sp, color = Color(0xFFFFFFFF), fontWeight = FontWeight.Medium, modifier = Modifier.background(Color(0xFFFF5722), shape = RoundedCornerShape(4.dp)).padding(vertical = 4.dp, horizontal = 8.dp))
+                            }
+                            Column(modifier = Modifier.padding(horizontal = 6.dp, vertical = 4.dp)) {
+                                Text(text = "Sate Ayam", fontSize = 14.sp, color = Color(0xFF000000), fontWeight = FontWeight.SemiBold)
+                                Text(text = "Sate Ayam dengan bumbu kacang", fontSize = 11.sp, color = Color(0xFF000000), fontWeight = FontWeight.Light)
+                                Spacer(modifier = Modifier.height(4.dp))
+                                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                                    Text(text = "Rp. 25.000", fontSize = 14.sp, fontWeight = FontWeight.SemiBold, color = Color(0xFFFF5722))
+                                    Button(onClick = { /*TODO*/ }, shape = RoundedCornerShape(10.dp), colors = ButtonDefaults.buttonColors(
+                                        containerColor = Color(0xFFFF5722),
+                                        contentColor = Color(0xFFFFFFFF),
+
+                                        ), contentPadding = PaddingValues(horizontal = 4.dp, vertical = 2.dp)) {
+                                        Text(text = "Beli", fontSize = 12.sp, fontWeight = FontWeight.Medium)
+                                    }
+
+                                }
+                            }
+                        }
                     }
+
                 }
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Card(modifier = Modifier.clip(shape = RoundedCornerShape(8.dp)).fillMaxWidth(0.5f).height(80.dp)) {
-                        Image(painter = painterResource(id = R.drawable.snack),
-                            contentDescription = null,
-                            modifier = Modifier.fillMaxWidth().clip(shape = RoundedCornerShape(8.dp)),
-                            contentScale = ContentScale.Crop)
+                    Card(modifier = Modifier.clip(shape = RoundedCornerShape(8.dp)).fillMaxWidth(0.5f)) {
+                        Column() {
+                            Box(modifier = Modifier.fillMaxWidth().height(100.dp)) {
+                                Image(painter = painterResource(id = R.drawable.snack),
+                                    contentDescription = null,
+                                    modifier = Modifier.fillMaxSize().clip(shape = RoundedCornerShape(8.dp)),
+                                    contentScale = ContentScale.Crop)
+                                Text(text = "Makanan", fontSize = 14.sp, color = Color(0xFFFFFFFF), fontWeight = FontWeight.Medium, modifier = Modifier.background(Color(0xFFFF5722), shape = RoundedCornerShape(4.dp)).padding(vertical = 4.dp, horizontal = 8.dp))
+                            }
+                            Column(modifier = Modifier.padding(horizontal = 6.dp, vertical = 4.dp)) {
+                                Text(text = "Pizza", fontSize = 14.sp, color = Color(0xFF000000), fontWeight = FontWeight.SemiBold)
+                                Text(text = "Pizza dengan daging sapi", fontSize = 11.sp, color = Color(0xFF000000), fontWeight = FontWeight.Light)
+                                Spacer(modifier = Modifier.height(4.dp))
+                                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                                    Text(text = "Rp. 85.000", fontSize = 14.sp, fontWeight = FontWeight.SemiBold, color = Color(0xFFFF5722))
+                                    Button(onClick = { /*TODO*/ }, shape = RoundedCornerShape(10.dp), colors = ButtonDefaults.buttonColors(
+                                        containerColor = Color(0xFFFF5722),
+                                        contentColor = Color(0xFFFFFFFF),
+
+                                        ), contentPadding = PaddingValues(horizontal = 4.dp, vertical = 2.dp)) {
+                                        Text(text = "Beli", fontSize = 12.sp, fontWeight = FontWeight.Medium)
+                                    }
+
+                                }
+                            }
+                        }
                     }
-                    Card(modifier = Modifier.clip(shape = RoundedCornerShape(8.dp)).fillMaxWidth().height(80.dp)) {
-                        Image(painter = painterResource(id = R.drawable.seafood),
-                            contentDescription = null,
-                            modifier = Modifier.fillMaxWidth().clip(shape = RoundedCornerShape(8.dp)),
-                            contentScale = ContentScale.Crop)
+                    Card(modifier = Modifier.clip(shape = RoundedCornerShape(8.dp)).fillMaxWidth()) {
+                        Column() {
+                            Box(modifier = Modifier.fillMaxWidth().height(100.dp)) {
+                                Image(painter = painterResource(id = R.drawable.seafood),
+                                    contentDescription = null,
+                                    modifier = Modifier.fillMaxSize().clip(shape = RoundedCornerShape(8.dp)),
+                                    contentScale = ContentScale.Crop)
+                                Text(text = "Makanan", fontSize = 14.sp, color = Color(0xFFFFFFFF), fontWeight = FontWeight.Medium, modifier = Modifier.background(Color(0xFFFF5722), shape = RoundedCornerShape(4.dp)).padding(vertical = 4.dp, horizontal = 8.dp))
+                            }
+                            Column(modifier = Modifier.padding(horizontal = 6.dp, vertical = 4.dp)) {
+                                Text(text = "Seafood", fontSize = 14.sp, color = Color(0xFF000000), fontWeight = FontWeight.SemiBold)
+                                Text(text = "Aneka makanan laut fresh", fontSize = 11.sp, color = Color(0xFF000000), fontWeight = FontWeight.Light)
+                                Spacer(modifier = Modifier.height(4.dp))
+                                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                                    Text(text = "Rp. 35.000", fontSize = 14.sp, fontWeight = FontWeight.SemiBold, color = Color(0xFFFF5722))
+                                    Button(onClick = { /*TODO*/ }, shape = RoundedCornerShape(10.dp), colors = ButtonDefaults.buttonColors(
+                                        containerColor = Color(0xFFFF5722),
+                                        contentColor = Color(0xFFFFFFFF),
+
+                                        ), contentPadding = PaddingValues(horizontal = 4.dp, vertical = 2.dp)) {
+                                        Text(text = "Beli", fontSize = 12.sp, fontWeight = FontWeight.Medium)
+                                    }
+
+                                }
+                            }
+                        }
                     }
                 }
             }
